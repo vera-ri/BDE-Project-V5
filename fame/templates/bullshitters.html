@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load unnest_json %}
+
+{% load static %}
+{% load highlight %}
+
+{% block title %}Bullshitters{% endblock %}
+
+{% block body %}
+<br>
+<h2>Bullshitters for every expertise area: </h2>
+{% for expertise_area,userlist in bullshittersdictionary.items %}
+<br>
+{{ expertise_area }} : 
+{% for user in userlist %}
+<br>
+{{ user.user }}:
+{{ user.fame_level_numeric }}
+{% endfor %}
+<br>
+{% endfor %}
+{% endblock %}
